@@ -1,8 +1,9 @@
 % Specification needed:
 data_directory = '';
+result_file_name = 'PAF_results_***.xlsx';
 
 
-file_path = spm_select('FPList', data_directory, 'PAF_results_New.xlsx');
+file_path = spm_select('FPList', data_directory, result_file_name); 
 disp(file_path);
 
 % Load sheet names

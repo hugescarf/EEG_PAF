@@ -80,7 +80,7 @@ for n = 1:length(files)
     T = table({['IC' num2str(best_comp)]}', PAF_mean, PAF_Power_mean, ...
         'VariableNames', {'Best_Component', 'Mean_PAF_Hz', 'Mean_PAF_Power'});
 
-    output_file = fullfile(data_directory, 'Component_PAF_Results_SelectedIC.xlsx');
+    output_file = fullfile(data_directory, 'PAF_results_by_component.xlsx');
     writetable(T, output_file, 'Sheet', name);
     fprintf('PAF results (best component) saved to %s (Sheet: %s)\n', output_file, name);
 end

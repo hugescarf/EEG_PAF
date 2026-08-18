@@ -81,7 +81,7 @@ for n = 1:length(files)
         'VariableNames', {'Channel', 'Mean_PAF_Hz', 'Mean_PAF_Power'});
     
     % === Save to Excel ===
-    excel_dir = [data_directory '/PAF_results_New.xlsx'];
+    excel_dir = [data_directory '/PAF_results_by_channel.xlsx'];
     writetable(T, excel_dir, 'Sheet', name);
-    fprintf('PAF results saved to PAF_results.xlsx\n');
+    fprintf('PAF results saved to PAF_results_by_channel.xlsx\n');
 end
