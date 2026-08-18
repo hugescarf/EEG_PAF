@@ -5,6 +5,7 @@ data_directory = '';
 
 data_path = [data_directory '/epoched'];
 files = cellstr(spm_select('FPList', data_path, '.set$'));
+
 disp(files);
 
 for n = 1:length(files)
