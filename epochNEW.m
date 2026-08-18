@@ -1,7 +1,9 @@
 % Specification needed:
 data_directory = '';
 
-files = cellstr(spm_select('FPList', 'C:\Users\elian2\Desktop\EEG_practice_data\ica_pruned', '.set$'));
+data_path = [data_directory '/epoched'];
+ica_path = [data_directory '/ica_pruned'];
+files = cellstr(spm_select('FPList', ica_path, '.set$'));
 
 disp(files);
 for n = 1:length(files)
@@ -19,10 +21,10 @@ for n = 1:length(files)
     
     % === Epoch after 'eos' and 'ecs' ===
     save_epoch_set(EEG_orig, eyesopen, 'eos_segment', [name '_eos.set'], ...
-        'C:\Users\elian2\Desktop\EEG_practice_data\epoched\');
+        data_path);
     
     save_epoch_set(EEG_orig, eyesclosed, 'ecs_segment',  [name '_ecs.set'], ...
-        'C:\Users\elian2\Desktop\EEG_practice_data\epoched\');
+        data_path);
 end
     
     % === Define a reusable epoching function ===
