@@ -1,4 +1,10 @@
-files = cellstr(spm_select('FPList', 'C:\Users\elian2\Desktop\EEG_practice_data\epoched', '.set$'));
+% This file calculates PAF using Center of Gravity(CoG) method by component.
+% Results will be saved in excel file in specified data_directory.
+% Specification needed:
+data_directory = '';
+
+data_path = [data_directory '/epoched'];
+files = cellstr(spm_select('FPList', data_path, '.set$'));
 disp(files);
 
 for n = 1:length(files)
@@ -73,7 +79,7 @@ for n = 1:length(files)
     T = table({['IC' num2str(best_comp)]}', PAF_mean, PAF_Power_mean, ...
         'VariableNames', {'Best_Component', 'Mean_PAF_Hz', 'Mean_PAF_Power'});
 
-    output_file = fullfile('C:\Users\elian2\Desktop\EEG_practice_data\', 'Component_PAF_Results_SelectedIC.xlsx');
+    output_file = fullfile(data_directory, 'Component_PAF_Results_SelectedIC.xlsx');
     writetable(T, output_file, 'Sheet', name);
     fprintf('PAF results (best component) saved to %s (Sheet: %s)\n', output_file, name);
 end

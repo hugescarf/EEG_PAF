@@ -1,4 +1,8 @@
-file_path = spm_select('FPList', 'C:\Users\elian2\Desktop\EEG_practice_data', 'PAF_results_New.xlsx');
+% Specification needed:
+data_directory = '';
+
+
+file_path = spm_select('FPList', data_directory, 'PAF_results_New.xlsx');
 disp(file_path);
 
 % Load sheet names

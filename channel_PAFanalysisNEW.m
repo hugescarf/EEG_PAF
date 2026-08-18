@@ -1,4 +1,10 @@
-files = cellstr(spm_select('FPList', 'C:\Users\elian2\Desktop\EEG_practice_data\epoched', '.set$'));
+% This file calculates PAF using Center of Gravity(CoG) method by channel.
+% Results will be saved in excel file in specified data_directory.
+% Specification needed:
+data_directory = '';
+
+data_path = [data_directory '/epoched'];
+files = cellstr(spm_select('FPList', data_path, '.set$'));
 disp(files);
 
 for n = 1:length(files)
@@ -75,6 +81,7 @@ for n = 1:length(files)
         'VariableNames', {'Channel', 'Mean_PAF_Hz', 'Mean_PAF_Power'});
     
     % === Save to Excel ===
-    writetable(T, 'C:\Users\elian2\Desktop\EEG_practice_data\PAF_results_New.xlsx', 'Sheet', name);
+    excel_dir = [data_directory '/PAF_results_New.xlsx'];
+    writetable(T, excel_dir, 'Sheet', name);
     fprintf('PAF results saved to PAF_results.xlsx\n');
 end

@@ -1,3 +1,6 @@
+% Specification needed:
+data_directory = '';
+
 files = cellstr(spm_select('FPList', 'C:\Users\elian2\Desktop\EEG_practice_data\ica_pruned', '.set$'));
 
 disp(files);
